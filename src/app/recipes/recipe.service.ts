@@ -22,7 +22,7 @@ export class RecipeService {
       'https://tinyurl.com/u8u2m8a',
       [
         new Ingredient('Tomato', 2),
-        new Ingredient('Leafs', 2)
+        new Ingredient('Leafs', 5)
       ]
     )
   ];
