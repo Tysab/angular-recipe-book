@@ -3,6 +3,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeHomeComponent } from './recipes/recipe-home/recipe-home.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -13,11 +14,11 @@ const appRoutes: Routes = [
       {
         path: ':id',
         component: RecipeDetailComponent
+      },
+      {
+        path: '**',
+        component: RecipeHomeComponent
       }
-      // {
-      //   path: '**',
-      //   component: RecipeHomeComponent
-      // }
     ]
   },
   {
