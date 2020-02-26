@@ -21,6 +21,11 @@ export class RecipeService {
   ];
 
   getRecipes() {
+    // this.showSingleRecipe(2);
     return this.recipes.slice();
+  }
+
+  showSingleRecipe(id: number) {
+    return this.recipes.find(el => el.id === id);
   }
 }
