@@ -20,10 +20,10 @@ export class RecipeDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.recipe =
-    const id = this.route.snapshot.params['id'];
-    const singleRecipe = this.recipeService.showSingleRecipe(id);
-    this.recipe = singleRecipe;
+    //  Calls a recipe once, without being able to update data.
+    // this.recipe = this.recipeService.showSingleRecipe(
+    //   this.route.snapshot.params['id']
+    // );
 
     this.route.params.subscribe((params: Params) => {
       this.recipe = this.recipeService.showSingleRecipe(+params['id']);

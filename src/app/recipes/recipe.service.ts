@@ -21,7 +21,6 @@ export class RecipeService {
   ];
 
   getRecipes() {
-    // this.showSingleRecipe(2);
     return this.recipes.slice();
   }
 
