@@ -11,12 +11,6 @@ export class AppComponent {
 
   @ViewChild('componentHolder', { static: true }) componentHolder: ElementRef;
 
-  setHeader(header: string) {
-    if (this.validHeaders.includes(header)) {
-      this.setComponent(header);
-    }
-  }
-
   private setComponent(name: string) {
     //  This code injection doesn't work, because of XSS protection
     // this.componentInnerHTML = `<app-${name}></app-${name}>`;
