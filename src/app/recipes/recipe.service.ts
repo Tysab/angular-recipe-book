@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class RecipeService {
   // recipeSelected = new EventEmitter<Recipe>();
-  // recipeSelected = new Subject<Recipe>();
+  recipeChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -28,5 +28,15 @@ export class RecipeService {
 
   showSingleRecipe(id: number) {
     return this.recipes.find(el => el.id === id);
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipeChanged.next(this.recipes.slice());
   }
 }
