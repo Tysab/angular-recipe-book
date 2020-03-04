@@ -9,20 +9,28 @@ export class RecipeService {
   // recipeSelected = new EventEmitter<Recipe>();
   recipeChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Schnitzel',
-      'This is a schnitzel',
-      'https://tinyurl.com/qw24g4q',
-      [new Ingredient('Meat', 1), new Ingredient('Lemon', 2)]
-    ),
-    new Recipe('Salad', 'This is a salad', 'https://tinyurl.com/u8u2m8a', [
-      new Ingredient('Tomato', 2),
-      new Ingredient('Leafs', 5)
-    ])
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Schnitzel',
+  //     'This is a schnitzel',
+  //     'https://tinyurl.com/qw24g4q',
+  //     [new Ingredient('Meat', 1), new Ingredient('Lemon', 2)]
+  //   ),
+  //   new Recipe('Salad', 'This is a salad', 'https://tinyurl.com/u8u2m8a', [
+  //     new Ingredient('Tomato', 2),
+  //     new Ingredient('Leafs', 5)
+  //   ])
+  // ];
+
+  private recipes: Recipe[] = [];
+
 
   constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipeChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
@@ -47,5 +55,4 @@ export class RecipeService {
     this.recipes.splice(index, 1);
     this.recipeChanged.next(this.recipes.slice());
   }
-
 }
