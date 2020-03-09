@@ -74,6 +74,7 @@ export class AuthComponent implements OnDestroy {
   }
 
   private showErrorAlert(message: string) {
+    //  Programmatically creates component in ViewContainerRef placeholder
     const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
       AlertComponent
     );
